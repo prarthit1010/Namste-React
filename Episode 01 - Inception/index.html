@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Word Using the HTML</h1>
+    <!-- <h1>Hello Word Using the HTML</h1> -->
+
+    <div id="root">
+
+    </div>
+
+    <script>
+
+        const heading = document.createElement("h1")
+        heading.innerHTML= "This is Hello Word Using the Javascript";
+
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+
+
+    </script>
 </body>
 </html>
