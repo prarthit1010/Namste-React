@@ -26,13 +26,18 @@ const Jsxheading = (
 // what is REact Components ?
 // React functiona; Componenets means Normal JAvascript Function which return jsx. or React Eelements.
 
-
+// we can use javascript inside Jsx using the {}
+// we can also add the Elements Inside the JSx
 const value = 1000;
+
+
+const element = <h3>this is element outside jsx</h3>
   const Heading = () =>{
         return(
 
                 <div>
                 {value}
+                {element}
                 <Titel/>
         <h1>This is H1 Using the functional Componenets</h1>
        </div> );
