@@ -14,8 +14,15 @@ const heading = React.createElement("div",{ id : "Parent"},
         React.createElement("div",{id : "child"},
                 [ React.createElement("h1",{key :1},"This is h1 from the React"),
                 React.createElement("h2",{key :2},"This is h2 from the React")]));
+
                 
+const Jsxheading = (
+<>
+<h1>This is JSX heading</h1>
+<h2>this is h2 tag</h2>
+</> );                
 const root =ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(Jsxheading);
+
 
 
