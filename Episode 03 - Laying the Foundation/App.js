@@ -26,16 +26,19 @@ const Jsxheading = (
 // what is REact Components ?
 // React functiona; Componenets means Normal JAvascript Function which return jsx. or React Eelements.
 
+
+const value = 1000;
   const Heading = () =>{
         return(
 
                 <div>
+                {value}
                 <Titel/>
         <h1>This is H1 Using the functional Componenets</h1>
        </div> );
   }
 
-
+// wen we pun one componenets to athoe then this is called componenets composition
   const Titel = () => <h1>this is tilerm from the Title Components</h1>
 const root =ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Heading/>);
