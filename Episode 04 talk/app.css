@@ -1,0 +1,66 @@
+#heading {
+    color : red;
+}
+
+.header{
+    display : flex;
+    justify-content: space-between;
+    border:  1px solid black;
+    border-radius: 10px;
+}
+.header-logo{
+   width : 80px;
+   margin: 10px;
+
+}
+
+.header > ul {
+    display: flex;
+   
+    
+}
+
+.header >ul > li {
+
+    list-style:  none;
+    font-size: 17px;
+    margin: 0px 20px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+
+.res-card{
+    height: 400px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10;
+    
+}
+
+.res-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+.res-card-img{
+    width: 180px;
+    margin: 10px;
+    
+}
+.serch-bar{
+    margin-top: 30px;
+}
+
+.cusions{
+    margin: 10px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap:  wrap;
+}
