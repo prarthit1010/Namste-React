@@ -6,14 +6,14 @@
   import Body from "./components/Body";
   import About from "./components/About";
   import ContactUs from "./components/ContactUs";
-  import { createBrowserRouter , RouterProvider } from "react-router";
+  import { createBrowserRouter , Outlet, RouterProvider } from "react-router";
   import Error from "./components/Error";
 
     const Applayout= () =>{
           return(
           <div className=" app">
             <Header/>
-            <Body/>
+            <Outlet/>
           </div>
           );
     }
@@ -22,8 +22,14 @@
       {
         path : "/",
         element : <Applayout/>,
-        errorElement : <Error />
+        errorElement : <Error />,
+        children : [
+
+      {
+        path : "/",
+        element : <Body/>
       },
+
       {
         path : "/about",
         element : <About/>
@@ -31,7 +37,11 @@
       {
         path : "/contactus",
         element : <ContactUs />
+      }
+
+        ]
       },
+      
     ])
 
   const root =ReactDOM.createRoot(document.getElementById("root"));
