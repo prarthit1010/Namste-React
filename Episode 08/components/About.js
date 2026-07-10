@@ -23,8 +23,9 @@ class About extends React.Component{
    <div>
        <h1>This is About Page</h1>
 
-       <UserClass name= {"Prarthit From the Classbase Components"}/>
-        {  console.log("Parent Return")}
+       <UserClass />
+      {/* remove name for the test the GITHUB_API APi  */}
+      
    </div>
   )
   }
