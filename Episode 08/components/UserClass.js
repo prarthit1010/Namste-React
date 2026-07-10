@@ -8,10 +8,18 @@ class UserClass extends React.Component{
         this.state = {
             count : 0,
         }
+
+        console.log("Child Construtor")
+    }
+
+
+    componentDidMount(){
+         console.log("Child Component DID Mount")
     }
 
     render(){
 
+        console.log("Child Render")
         const {count} = this.state;
         const {name} = this.props;
 
@@ -30,6 +38,7 @@ class UserClass extends React.Component{
 
             <h2>Name : {name}</h2>
             <h2>This Course is namste React</h2>
+            { console.log("Child Return")}
         </div>
         )
     }
