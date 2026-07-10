@@ -7,20 +7,26 @@ class UserClass extends React.Component{
 
         this.state = {
             count : 0,
-            count2 : 3
         }
     }
 
     render(){
 
-        const {count , count2} = this.state;
+        const {count} = this.state;
         const {name} = this.props;
 
         return(
         <div className='user'>
 
             <h1>Count = {count}</h1>
-            <h1>Count = {count2}</h1>
+        
+            <button onClick={()=> {
+                // Never Update State Variable Directly
+                this.setState({
+                    count : this.state.count + 1,
+                })
+            }}>Increse the Count Here</button>
+           
 
             <h2>Name : {name}</h2>
             <h2>This Course is namste React</h2>
