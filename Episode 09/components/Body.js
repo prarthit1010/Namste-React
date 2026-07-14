@@ -3,6 +3,7 @@ import resObj from "../utils/mockdata";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -12,6 +13,8 @@ const Body = () => {
 const [reslist , setrestlist] = useState([]);    
 const [searchtext,setsearchtext] = useState("");
 const [searchreslist,setsearchreslist] = useState();
+
+const onlineStatus = useOnlineStatus();
 
 useEffect(()=>{
     fetchdata();
@@ -25,6 +28,11 @@ const fetchdata = async () =>{
     console.log(json);
     setrestlist(json?.data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setsearchreslist(json?.data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+}
+
+
+if(onlineStatus === false) { 
+return <h1>You are offilne, Please make sure your internet connection</h1>
 }
 
 if(reslist.length === 0){
