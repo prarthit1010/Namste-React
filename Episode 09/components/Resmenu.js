@@ -1,26 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MENU_API } from "../utils/constant";
+import useResMenu from "../utils/useResMenu";
 
 const Resmenu = () => {
-  const [resdata, setresdata] = useState(null);
 
   const {resid} = useParams();
+  const resdata = useResMenu(resid);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
 
-  const fetchMenu = async () => {
-    const data = await fetch(
-     MENU_API + resid
-    );
 
-    const json = await data.json();
-
-    setresdata(json);
-    console.log(json);
-  };
 
   // restaurant name (safe)
   const name =
