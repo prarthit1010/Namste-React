@@ -20,6 +20,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
             <li><Link to="/contactus">Contect us</Link></li>
             <li>Home</li>
             <li>Our info</li>
+            <li><Link to= "/grocery">Grocery</Link></li>
             <button className="login-btn" onClick={() =>{lgnbtn == "Login" ? setlgnbtn("Logout") : setlgnbtn("Login")}}>{lgnbtn}</button>
           </ul>
       
