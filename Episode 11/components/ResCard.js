@@ -28,4 +28,18 @@
     );
   }
 
+
+  // Higher Order components
+
+ export const withPromotedLabel = (ResCard) => {
+    return (props) => {
+      return(
+        <div>
+          <label className="bg-black mx-2  p-1 absolute text-white rounded-2xl">Promoted</label>
+          <ResCard {...props}/>
+        </div>
+      )
+    }
+  }
+
 export default ResCard;  

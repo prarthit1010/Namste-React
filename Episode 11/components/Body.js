@@ -1,4 +1,4 @@
-import ResCard from "./ResCard"
+import ResCard , {withPromotedLabel} from "./ResCard"
 import resObj from "../utils/mockdata";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -13,6 +13,8 @@ const Body = () => {
 const [reslist , setrestlist] = useState([]);    
 const [searchtext,setsearchtext] = useState("");
 const [searchreslist,setsearchreslist] = useState();
+
+const ResCardPromoted = withPromotedLabel(ResCard)
 
 const onlineStatus = useOnlineStatus();
 
@@ -70,10 +72,9 @@ if(reslist.length === 0){
     <div className="flex flex-wrap ">
         
     {  searchreslist.map((restaurant) => (
-    <Link  to={`/resmenu/${restaurant?.info?.id}`} key={restaurant.info.id}><ResCard
-        
-        resdata={restaurant}
-    /> </Link>
+    <Link  to={`/resmenu/${restaurant?.info?.id}`} key={restaurant.info.id}>
+    
+    {(restaurant.info.avgRating > 4.5) ? (<ResCardPromoted resdata={restaurant}/>) : (<ResCard resdata={restaurant}/>)} </Link>
 ))
 }
         
