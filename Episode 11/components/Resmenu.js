@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MENU_API } from "../utils/constant";
 import useResMenu from "../utils/useResMenu";
+import ResCategory from "./ResCategory";
 
 const Resmenu = () => {
 
@@ -19,32 +20,26 @@ const Resmenu = () => {
   const menu =
     resdata?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
+    const categories = resdata?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c=> c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+  console.log(categories);
+
   return (
-    <div >
-      <h1>Menu of {name }</h1>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">Menu of {name }</h1>
 
-      {menu?.filter(c => c.card?.card?.title)?.map((category, index) => (
-        <div key={index} >
-          
-          {/* Category Title */}
-          <h2>
-            {index + 1}. {category.card.card.title}
-          </h2>
+      <p className="font-bold text-lg">Cost Of two</p>
 
-          {/* Items */}
-          <ul>
-            {category.card.card.itemCards?.map((item) => (
-              <li key={item.card.info.id}>
-                {item.card.info.name} — ₹
-                {item.card.info.price / 100}
-              </li>
-            ))}
-          </ul>
+      {/* Catergory Accrodians */}
+      { categories?.map((categories) => (<ResCategory key={categories.card.card.categoryId} data={categories?.card?.card}/>)) }
 
-        </div>
-      ))}
+
+      
+  
+
     </div>
-  );
-};
+     
+  )
+
+} 
 
 export default Resmenu;
