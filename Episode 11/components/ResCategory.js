@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import Iteamlits from './IteamList'
 
-const ResCategory = ({data}) => {
-
-    const[showItems,SetShowItems]= useState(false)
+const ResCategory = ({data,showItems,setshowIndex}) => {
 
     const handleClick = () => {
-        SetShowItems(!showItems)
+     (setshowIndex == true ?  setshowIndex(false) : setshowIndex())
+    
     }
 
     //console.log(data)

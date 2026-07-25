@@ -8,6 +8,7 @@ const Resmenu = () => {
 
   const {resid} = useParams();
   const resdata = useResMenu(resid);
+  const [showIndex,setshowIndex] = useState(null)
 
 
 
@@ -30,7 +31,16 @@ const Resmenu = () => {
       <p className="font-bold text-lg">Cost Of two</p>
 
       {/* Catergory Accrodians */}
-      { categories?.map((categories) => (<ResCategory key={categories.card.card.categoryId} data={categories?.card?.card}/>)) }
+      { categories?.map((categories , Index) => (<ResCategory key={categories.card.card.categoryId} 
+      data={categories?.card?.card} 
+      showItems={Index == showIndex ? true : false}
+      setshowIndex={() =>
+  setshowIndex(showIndex === Index ? null : Index)
+}
+      />
+    
+      
+      )) }
 
 
       
