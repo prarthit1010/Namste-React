@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { LOGO_URL } from "../utils/constant";  
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "./UserContext";
   
   const Header = () =>{
 
   const [lgnbtn,setlgnbtn] = useState("Login");  
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext);
+  console.log(loggedInUser);  
+
       return (
         <div className="flex justify-between bg-pink-200 ">
 
@@ -23,6 +28,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
             <li className="px-4">Our info</li>
             <li className="px-4"><Link to= "/grocery">Grocery</Link></li>
             <button className="px-4 text-center " onClick={() =>{lgnbtn == "Login" ? setlgnbtn("Logout") : setlgnbtn("Login")}}>{lgnbtn}</button>
+            <li className="px-4">{loggedInUser}</li>
           </ul>
         </div>
         </div>

@@ -9,6 +9,7 @@
   import { createBrowserRouter , Outlet, RouterProvider } from "react-router";
   import Error from "./components/Error";
   import Resmenu from "./components/Resmenu";
+import UserContext from "./components/UserContext";
 //import Grocery from "./components/Grocery";
 
 
@@ -16,10 +17,12 @@ const Grocery = lazy(()=> import("./components/Grocery"))
 
     const Applayout= () =>{
           return(
+          <UserContext.Provider value={{loggedInUser : "Ravi"}}>  
           <div className=" app">
             <Header/>
             <Outlet/>
           </div>
+          </UserContext.Provider>
           );
     }
 
